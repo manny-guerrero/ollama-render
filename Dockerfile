@@ -1,8 +1,13 @@
 FROM ollama/ollama:latest
 
+# Copiar y dar permisos al script
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-EXPOSE 11434
+# ¡Importante! Anular el ENTRYPOINT heredado
+ENTRYPOINT []
 
-CMD ["/start.sh"]
+# Ejecutar el script con sh
+CMD ["/bin/sh", "/start.sh"]
+
+EXPOSE 11434
