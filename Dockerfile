@@ -1,10 +1,8 @@
 FROM ollama/ollama:latest
 
-# Descargar el modelo al iniciar (opcional, pero recomendado)
-RUN ollama pull nomic-embed-text
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
-# Exponer puerto
 EXPOSE 11434
 
-# Iniciar Ollama
-CMD ["ollama", "serve"]
+CMD ["/start.sh"]
